@@ -218,6 +218,7 @@ func (bz *Bizip) createUnzipReader(file *os.File) (io.ReadCloser, error) {
 	}
 
 	zipFile := zipReader.File[0]
+	zipFile.DeferAuth = true
 
 	if bz.Password != "" {
 		zipFile.SetPassword(bz.Password)
